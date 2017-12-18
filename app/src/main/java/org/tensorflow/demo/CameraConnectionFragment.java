@@ -16,6 +16,7 @@
 
 package org.tensorflow.demo;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -24,6 +25,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
+import android.databinding.DataBindingUtil;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
 import android.graphics.RectF;
@@ -51,6 +53,10 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import org.tensorflow.demo.databinding.CameraConnectionFragmentBinding;
+import org.tensorflow.demo.env.Logger;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -58,11 +64,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-import org.tensorflow.demo.env.Logger;
-import org.tensorflow.demo.R;
 
 public class CameraConnectionFragment extends Fragment {
   private static final Logger LOGGER = new Logger();
+
+  // DataBinding
+  private CameraConnectionFragmentBinding mBinding;
+
 
   /**
    * The camera preview size will be chosen to be the smallest frame by pixel size capable of
@@ -317,11 +325,20 @@ public class CameraConnectionFragment extends Fragment {
   @Override
   public View onCreateView(
       final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-    return inflater.inflate(layout, container, false);
+    mBinding = DataBindingUtil.inflate(inflater, R.layout.camera_connection_fragment, container, false);
+    return mBinding.getRoot();
   }
 
   @Override
   public void onViewCreated(final View view, final Bundle savedInstanceState) {
+
+    // Binding Test successful
+    mBinding.debugOverlay.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Toast.makeText(getActivity(), "this is OverLay", Toast.LENGTH_SHORT).show();
+      }
+    });
     textureView = (AutoFitTextureView) view.findViewById(R.id.texture);
   }
 
