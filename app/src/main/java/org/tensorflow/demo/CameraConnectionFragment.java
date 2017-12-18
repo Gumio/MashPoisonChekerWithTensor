@@ -331,14 +331,6 @@ public class CameraConnectionFragment extends Fragment {
 
   @Override
   public void onViewCreated(final View view, final Bundle savedInstanceState) {
-
-    // Binding Test successful
-    mBinding.debugOverlay.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Toast.makeText(getActivity(), "this is OverLay", Toast.LENGTH_SHORT).show();
-      }
-    });
     textureView = (AutoFitTextureView) view.findViewById(R.id.texture);
   }
 
