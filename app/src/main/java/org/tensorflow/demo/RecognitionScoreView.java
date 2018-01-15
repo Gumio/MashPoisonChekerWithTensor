@@ -70,12 +70,13 @@ public class RecognitionScoreView extends RelativeLayout implements ResultsView 
     // ここで値取ってこれる
     if (results != null) {
       for (final Recognition recog : results) {
+        Log.d("this kinoko is " + recog.getTitle() + ":", recog.getConfidence().toString());
         if(detail) {
           label = recog.getTitle() + ": " + recog.getConfidence();
         }else {
           label = "毒かも？";
         }
-        if(recog.getConfidence() > 0.7) {
+        if(recog.getConfidence() > 0.69) {
           mBinding.resultPicture.setImageResource(R.drawable.m_f_mushroom370);
           mBinding.resultText.setText(label);
         } else {
