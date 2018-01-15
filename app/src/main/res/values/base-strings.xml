@@ -16,6 +16,6 @@
 -->
 
 <resources>
-    <string name="app_name">TensorFlow Demo</string>
-    <string name="activity_name_classification">TF Classify</string>
+    <string name="app_name">毒キノコチェッカー</string>
+    <string name="activity_name_classification">毒キノコチェッカー</string>
 </resources>
