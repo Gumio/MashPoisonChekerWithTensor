@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tensorflow.demo;
+package com.gumio_inf.poison_mashroom_check;
 
 import android.content.Context;
 import android.util.AttributeSet;

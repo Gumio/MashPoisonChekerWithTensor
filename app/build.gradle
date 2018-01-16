@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId 'org.tensorflow.demo'
+        applicationId 'com.gumio_inf.poison_mashroom_check'
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1

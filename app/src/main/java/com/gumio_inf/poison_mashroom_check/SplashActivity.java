@@ -1,4 +1,4 @@
-package org.tensorflow.demo;
+package com.gumio_inf.poison_mashroom_check;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-import org.tensorflow.demo.databinding.ActivitySplashBinding;
+import com.gumio_inf.poison_mashroom_check.databinding.ActivitySplashBinding;
+
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -30,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 2000);
+        }, 3000);
 
     }
 }

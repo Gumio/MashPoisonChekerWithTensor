@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tensorflow.demo;
+package com.gumio_inf.poison_mashroom_check;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -32,10 +32,9 @@ import android.util.Size;
 import android.util.TypedValue;
 import android.view.Display;
 
-import org.tensorflow.demo.OverlayView.DrawCallback;
-import org.tensorflow.demo.env.BorderedText;
-import org.tensorflow.demo.env.ImageUtils;
-import org.tensorflow.demo.env.Logger;
+import com.gumio_inf.poison_mashroom_check.env.BorderedText;
+import com.gumio_inf.poison_mashroom_check.env.ImageUtils;
+import com.gumio_inf.poison_mashroom_check.env.Logger;
 
 import java.util.List;
 import java.util.Vector;
@@ -158,7 +157,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     yuvBytes = new byte[3][];
 
     addCallback(
-        new DrawCallback() {
+        new OverlayView.DrawCallback() {
           @Override
           public void drawCallback(final Canvas canvas) {
             renderDebug(canvas);

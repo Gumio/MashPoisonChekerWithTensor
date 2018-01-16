@@ -13,12 +13,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package org.tensorflow.demo;
-
-import org.tensorflow.demo.Classifier.Recognition;
+package com.gumio_inf.poison_mashroom_check;
 
 import java.util.List;
 
 public interface ResultsView {
-  public void setResults(final List<Recognition> results);
+  public void setResults(final List<Classifier.Recognition> results);
 }

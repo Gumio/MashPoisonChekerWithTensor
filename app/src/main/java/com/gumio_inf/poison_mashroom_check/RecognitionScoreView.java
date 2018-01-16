@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package org.tensorflow.demo;
+package com.gumio_inf.poison_mashroom_check;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -23,14 +23,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import org.tensorflow.demo.Classifier.Recognition;
-import org.tensorflow.demo.databinding.ResultLayoutBinding;
+import com.gumio_inf.poison_mashroom_check.databinding.ResultLayoutBinding;
 
 import java.util.List;
 
 public class RecognitionScoreView extends RelativeLayout implements ResultsView {
   //private static final float TEXT_SIZE_DIP = 24;
-  private List<Recognition> results;
+  private List<Classifier.Recognition> results;
 //  private final float textSizePx;
 //  private final Paint fgPaint;
 //  private final Paint bgPaint;
@@ -62,14 +61,14 @@ public class RecognitionScoreView extends RelativeLayout implements ResultsView 
   }
 
   @Override
-  public void setResults(final List<Recognition> results) {
+  public void setResults(final List<Classifier.Recognition> results) {
     this.results = results;
 
     String label;
 
     // ここで値取ってこれる
     if (results != null) {
-      for (final Recognition recog : results) {
+      for (final Classifier.Recognition recog : results) {
         Log.d("this kinoko is " + recog.getTitle() + ":", recog.getConfidence().toString());
         if(detail) {
           label = recog.getTitle() + ": " + recog.getConfidence();

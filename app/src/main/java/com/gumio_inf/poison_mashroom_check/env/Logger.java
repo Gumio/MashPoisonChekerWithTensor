@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package org.tensorflow.demo.env;
+package com.gumio_inf.poison_mashroom_check.env;
 
 import android.util.Log;
 

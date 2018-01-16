@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package org.tensorflow.demo;
+package com.gumio_inf.poison_mashroom_check;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -54,8 +53,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import org.tensorflow.demo.databinding.CameraConnectionFragmentBinding;
-import org.tensorflow.demo.env.Logger;
+import com.gumio_inf.poison_mashroom_check.env.Logger;
+import com.gumio_inf.poison_mashroom_check.databinding.CameraConnectionFragmentBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;

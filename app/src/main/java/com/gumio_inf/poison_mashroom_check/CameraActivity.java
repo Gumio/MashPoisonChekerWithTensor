@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tensorflow.demo;
+package com.gumio_inf.poison_mashroom_check;
 
 import android.Manifest;
 import android.app.Activity;
@@ -30,9 +30,10 @@ import android.util.Size;
 import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import com.gumio_inf.poison_mashroom_check.env.Logger;
+
 import java.nio.ByteBuffer;
-import org.tensorflow.demo.env.Logger;
-import org.tensorflow.demo.R;
 
 public abstract class CameraActivity extends Activity implements OnImageAvailableListener {
   private static final Logger LOGGER = new Logger();
