@@ -54,7 +54,7 @@ public class RecognitionScoreView extends RelativeLayout implements ResultsView 
 //    bgPaint.setColor(0xcc4285f4);
     Typeface typeface = Typeface.createFromAsset(getResources().getAssets(), "kin.ttf");
     mBinding.resultText.setTypeface(typeface);
-    mBinding.resultText.setOnClickListener(new OnClickListener() {
+    mBinding.resultView.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
         Log.d("detail is ", detail.toString());
@@ -73,17 +73,17 @@ public class RecognitionScoreView extends RelativeLayout implements ResultsView 
     if (results != null) {
       for (final Classifier.Recognition recog : results) {
         Log.d("this kinoko is " + recog.getTitle() + ":", recog.getConfidence().toString());
-        if(detail) {
-          label = recog.getTitle() + ": " + recog.getConfidence();
-        }else {
-          label = "毒かも？";
-        }
         if(recog.getConfidence() >= 0.70) {
-          mBinding.resultPicture.setAnimation("warning.json");
+          mBinding.resultPicture.setAnimation("warn.json");
           mBinding.resultPicture.playAnimation();
+          if(detail) {
+            label = recog.getTitle() + "\n" + recog.getConfidence();
+          }else {
+            label = "毒かも？";
+          }
           mBinding.resultText.setText(label);
         } else {
-          mBinding.resultPicture.setAnimation("mnemonics.json");
+          mBinding.resultPicture.setAnimation("simple_loader.json");
           mBinding.resultPicture.playAnimation();
           mBinding.resultText.setText("このキノコは・・・・・・・");
         }
