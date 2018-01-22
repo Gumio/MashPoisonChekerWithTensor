@@ -17,6 +17,7 @@ package com.gumio_inf.poison_mashroom_check;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -51,7 +52,10 @@ public class RecognitionScoreView extends RelativeLayout implements ResultsView 
 //
 //    bgPaint = new Paint();
 //    bgPaint.setColor(0xcc4285f4);
-    mBinding.resultText.setOnClickListener(new OnClickListener() {
+    Typeface typeface = Typeface.createFromAsset(getResources().getAssets(), "kin.ttf");
+    mBinding.resultText.setTypeface(typeface);
+    mBinding.detailText.setTypeface(typeface);
+    mBinding.resultView.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
         Log.d("detail is ", detail.toString());
@@ -70,16 +74,21 @@ public class RecognitionScoreView extends RelativeLayout implements ResultsView 
     if (results != null) {
       for (final Classifier.Recognition recog : results) {
         Log.d("this kinoko is " + recog.getTitle() + ":", recog.getConfidence().toString());
-        if(detail) {
-          label = recog.getTitle() + ": " + recog.getConfidence();
-        }else {
-          label = "毒かも？";
-        }
-        if(recog.getConfidence() > 0.69) {
-          mBinding.resultPicture.setImageResource(R.drawable.m_f_mushroom370);
+        if(recog.getConfidence() >= 0.70) {
+          mBinding.resultPicture.setAnimation("warn.json");
+          mBinding.resultPicture.playAnimation();
+          if(detail) {
+            label = recog.getTitle() + "\n" + recog.getConfidence();
+            mBinding.detailText.setVisibility(GONE);
+          }else {
+            label = "毒かも？";
+            mBinding.detailText.setVisibility(VISIBLE);
+          }
           mBinding.resultText.setText(label);
         } else {
-          mBinding.resultPicture.setImageResource(R.drawable.question_head_boy);
+          mBinding.resultPicture.setAnimation("simple_loader.json");
+          mBinding.resultPicture.playAnimation();
+          mBinding.detailText.setVisibility(GONE);
           mBinding.resultText.setText("このキノコは・・・・・・・");
         }
       }
