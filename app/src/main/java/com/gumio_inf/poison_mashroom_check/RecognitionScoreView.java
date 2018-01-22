@@ -54,6 +54,7 @@ public class RecognitionScoreView extends RelativeLayout implements ResultsView 
 //    bgPaint.setColor(0xcc4285f4);
     Typeface typeface = Typeface.createFromAsset(getResources().getAssets(), "kin.ttf");
     mBinding.resultText.setTypeface(typeface);
+    mBinding.detailText.setTypeface(typeface);
     mBinding.resultView.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
