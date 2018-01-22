@@ -78,13 +78,16 @@ public class RecognitionScoreView extends RelativeLayout implements ResultsView 
           mBinding.resultPicture.playAnimation();
           if(detail) {
             label = recog.getTitle() + "\n" + recog.getConfidence();
+            mBinding.detailText.setVisibility(GONE);
           }else {
             label = "毒かも？";
+            mBinding.detailText.setVisibility(VISIBLE);
           }
           mBinding.resultText.setText(label);
         } else {
           mBinding.resultPicture.setAnimation("simple_loader.json");
           mBinding.resultPicture.playAnimation();
+          mBinding.detailText.setVisibility(GONE);
           mBinding.resultText.setText("このキノコは・・・・・・・");
         }
       }

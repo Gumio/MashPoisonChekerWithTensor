@@ -19,18 +19,31 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textView"
         android:scaleType="centerCrop"
-        app:lottie_fileName="mnemonics.json"
+        app:lottie_fileName="simple_loader.json"
         app:lottie_loop="true"
         app:lottie_autoPlay="true" />
 
     <TextView
         android:id="@+id/result_text"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/result_picture"
+        android:layout_marginTop="8dp"
         android:text="このキノコは・・・・・・・"
         android:textStyle="bold"
-        android:textSize="32dp"/>
+        android:textSize="32sp"/>
+    <TextView
+        android:id="@+id/detail_text"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/result_picture"
+        android:layout_below="@id/result_text"
+        android:layout_centerHorizontal="true"
+        android:textColor="#d3d3d3"
+        android:layout_margin="24dp"
+        android:textSize="24sp"
+        android:text="tapで詳細を見る"/>
 </RelativeLayout>
 </layout>
