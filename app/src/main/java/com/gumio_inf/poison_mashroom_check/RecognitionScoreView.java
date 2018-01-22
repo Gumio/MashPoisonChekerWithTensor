@@ -17,6 +17,7 @@ package com.gumio_inf.poison_mashroom_check;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -51,6 +52,8 @@ public class RecognitionScoreView extends RelativeLayout implements ResultsView 
 //
 //    bgPaint = new Paint();
 //    bgPaint.setColor(0xcc4285f4);
+    Typeface typeface = Typeface.createFromAsset(getResources().getAssets(), "kin.ttf");
+    mBinding.resultText.setTypeface(typeface);
     mBinding.resultText.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -75,11 +78,13 @@ public class RecognitionScoreView extends RelativeLayout implements ResultsView 
         }else {
           label = "毒かも？";
         }
-        if(recog.getConfidence() > 0.69) {
-          mBinding.resultPicture.setImageResource(R.drawable.m_f_mushroom370);
+        if(recog.getConfidence() >= 0.70) {
+          mBinding.resultPicture.setAnimation("warning.json");
+          mBinding.resultPicture.playAnimation();
           mBinding.resultText.setText(label);
         } else {
-          mBinding.resultPicture.setImageResource(R.drawable.question_head_boy);
+          mBinding.resultPicture.setAnimation("mnemonics.json");
+          mBinding.resultPicture.playAnimation();
           mBinding.resultText.setText("このキノコは・・・・・・・");
         }
       }
